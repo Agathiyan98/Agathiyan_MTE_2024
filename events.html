@@ -35,6 +35,37 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <style>
+    .justifyc{
+      justify-content: center;
+      display: flex;
+    }
+    #editor-container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin-top: 20px;
+        }
+
+        #code-editor,
+        #output-container {
+            width: 45%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            height: 300px;
+            box-sizing: border-box;
+        }
+
+        #compile-button {
+            margin-top: 20px;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+  </style>
 </head>
 
 <body>
@@ -60,7 +91,7 @@
     </div>
   </header><!-- End Header -->
 
-  <main id="main">
+  <main id="main" >
 
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs" data-aos="fade-in">
@@ -68,6 +99,26 @@
         <h2>Prediction</h2>
       </div>
     </div><!-- End Breadcrumbs -->
+
+<div id="dvCompiler" >
+  <div id="editors" class="justifyc">
+    <div id="editor-container">
+      <div id="code-editor" contenteditable="true" style="overflow-y: scroll;">
+      </div>
+      <div id="output-container">
+        <div style="text-align: center;display: none;;" id="dvimg">
+          <img src="/MTE2024/image/Prediction.jpg" style="height: 280px;"/>
+        </div>
+      </div>
+  </div>
+  </div>
+<div style="text-align: center;">
+<button id="compile-button" onclick="compileCode()">Compile</button>
+<div style="text-align: center;display: none;;" id="dvimg">
+  <img src="/MTE2024/image/Prediction.jpg" style="height: 280px;"/>
+</div>
+</div>
+
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -176,6 +227,19 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+    function compileCode() {
+        var codeEditorContent = document.getElementById('code-editor').innerText;
+        var dvimgElement = document.getElementById('dvimg');
+
+        // Check if codeEditorContent is not empty
+        if (codeEditorContent.trim() !== '') {
+            dvimgElement.style.display = 'block';  // Show the dvimg div
+        } else {
+            dvimgElement.style.display = 'none';   // Hide the dvimg div
+        }
+    }
+</script>
 
 </body>
 
